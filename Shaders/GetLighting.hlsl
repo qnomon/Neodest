@@ -1,11 +1,11 @@
 void MainLight_half(float3 WorldPos, out half3 Direction, out half3 Color, out half Attenuation)
 {
-#if defined(SHADERGRAPH_PREVIEW)
+#if defined (SHADERGRAPH_PREVIEW)
 	Direction = half3(0.5, 0.5, 0);
 	Color = 1;
 	Attenuation = 1;
 #else
-#if defined(SHADOWS_SCREEN)
+#if defined (SHADOWS_SCREEN)
 	half4 clipPos = TransformWorldToHClip(WorldPos);
 	half4 shadowCoord = ComputeScreenPos(clipPos);
 #else
